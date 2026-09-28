@@ -1,3 +1,17 @@
+# --- Lantern: never commit these ---
+# Cowrie runtime data (logs, sessions, captured files)
+var/
+# Captured malware samples
+downloads/
+# GeoIP database
+*.mmdb
+# Secrets and keys
+.env
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
