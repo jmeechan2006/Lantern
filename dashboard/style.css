@@ -1,0 +1,80 @@
+/* colour pallete */
+
+:root {
+    --night: #0B1426;
+    --panel: #13203A;
+    --border:#24365A;
+    --muted: #8A96AD;
+    --amber: #F5A524;
+    --ember: #E8742C;
+    --candle:#F3EEE3;
+    --glow:  #FFF1C2;
+    --danger:#E5484D;
+    --abyss: #050A14;
+}
+
+/* page basics */
+
+* {
+    box-sizing:border-box;
+}
+
+body {
+    margin: 0;
+    min-height:100vh;
+    color: var(--candle);
+    font-family: sans-serif;
+    background:
+        radial-gradient(ellipse 70% 22% at 50% 0%, rgba(90, 140, 200, 0.26), transparent 70%),
+        linear-gradient(180deg, #16284A 0%, var(--night) 28%, #07101F 70%, var(--abyss) 100%);
+    background-attachment: fixed;    
+}
+
+/* deep-sea layers */
+
+.rays {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(105deg,
+    transparent 0 70px, rgba(140, 180, 230, 0.05) 70px 110px);
+  mask-image: linear-gradient(180deg, #000 0%, transparent 60%);
+}
+
+.snow {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: -240px;
+    bottom: 0;
+    pointer-events: none;
+    opacity: 0.6;
+    background-image:
+        radial-gradient(1.5px 1.5px at 20px 30px, rgba(243, 238, 227, 0.5), transparent),
+        radial-gradient(1px 1px at 90px 120px, rgba(243, 238, 227, 0.4), transparent),
+        radial-gradient(1.5px 1.5px at 160px 60px, rgba(243, 238, 227, 0.35), transparent),
+        radial-gradient(1px 1px at 210px 190px, rgba(243, 238, 227, 0.45), transparent),
+        radial-gradient(2px 2px at 130px 170px, rgba(245, 165, 36, 0.25), transparent);
+    background-size: 240px 240px;
+    animation: drift 35s linear infinite;
+}
+
+@keyframes drift {
+    from { transform: translateY(0); }
+    to { transform: translateY(240px); }
+}
+
+/* content column */
+
+.page {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding:72px 24px 96px; 
+}
+
+/* accessibility */
+
+@media (prefers-reduced-motion: reduce){
+    .snow { animation: none; }
+}
